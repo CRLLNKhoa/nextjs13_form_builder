@@ -12,7 +12,7 @@ export async function GetFormStats() {
         throw new UserNotFoundErr()
     }
 
-    const stats = prisma.form.aggregate({
+    const stats = await prisma.form.aggregate({
         where: {
             userId: user.id,
         },
@@ -22,8 +22,8 @@ export async function GetFormStats() {
         }
     })
 
-    const vistis = (await stats)._sum.visstis || 0;
-    const submissions = (await stats)._sum.submissions || 0;
+    const vistis =  stats._sum.visstis || 0;
+    const submissions =  stats._sum.submissions || 0;
 
     let submissionRate = 0
 
