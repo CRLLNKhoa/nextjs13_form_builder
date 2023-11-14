@@ -1,18 +1,18 @@
 "use client"
 
 import { Dispatch, ReactNode, SetStateAction, createContext, useState } from "react"
-import { FormElementIstance } from "../FormElements"
+import { FormElementInstance } from "../FormElements"
 
 type DesignerContextType = {
-    elements: FormElementIstance[];
-    setElements: Dispatch<SetStateAction<FormElementIstance[]>>
-    addElement: (index: number, element: FormElementIstance) => void
+    elements: FormElementInstance[];
+    setElements: Dispatch<SetStateAction<FormElementInstance[]>>
+    addElement: (index: number, element: FormElementInstance) => void
     removeElement: (index: string) => void
 
-    selectedElement: FormElementIstance | null
-    setSelectedElement:  Dispatch<SetStateAction<FormElementIstance | null>>
+    selectedElement: FormElementInstance | null
+    setSelectedElement:  Dispatch<SetStateAction<FormElementInstance | null>>
 
-    updateElement: (id: string, element: FormElementIstance) => void
+    updateElement: (id: string, element: FormElementInstance) => void
 }
 
 export const DesignerContext = createContext<DesignerContextType | null>(null)
@@ -20,9 +20,9 @@ export const DesignerContext = createContext<DesignerContextType | null>(null)
 export default function DesignerContextProvider({
     children,
 }:{children: ReactNode}){
-    const [elements, setElements] = useState<FormElementIstance[]>([])
-    const [selectedElement, setSelectedElement ] = useState<FormElementIstance | null>(null)
-    const addElement =  (index: number, element: FormElementIstance) => {
+    const [elements, setElements] = useState<FormElementInstance[]>([])
+    const [selectedElement, setSelectedElement ] = useState<FormElementInstance | null>(null)
+    const addElement =  (index: number, element: FormElementInstance) => {
         setElements((prev) => {
             const newElements = [...prev]
             newElements.splice(index, 0,element)
@@ -33,7 +33,7 @@ export default function DesignerContextProvider({
         setElements(prev => prev.filter(elm => elm.id !== id))
     }
 
-    const updateElement = (id: string,element: FormElementIstance) => {
+    const updateElement = (id: string,element: FormElementInstance) => {
         setElements(prev => {
             const newElements = [...prev]
             const index = newElements.findIndex(el => el.id === id)

@@ -1,17 +1,25 @@
-
-import { TextFieldFormElement } from "./fields/TextField";
-import { TitleFieldFormElement } from "./fields/TitleField";
-import { SubTitleFieldFormElement } from "./fields/SubTitleField";
+import { CheckboxFieldFormElement } from "./fields/CheckboxField";
+import { DateFieldFormElement } from "./fields/DateField";
+import { NumberFieldFormElement } from "./fields/NumberField";
 import { ParagraphFieldFormElement } from "./fields/ParagraphField";
+import { SelectFieldFormElement } from "./fields/SelectField";
 import { SeparatorFieldFormElement } from "./fields/SeparatorField";
 import { SpacerFieldFormElement } from "./fields/SpacerField";
-import { SelectFieldFormElement } from "./fields/SelectField";
-import { NumberFieldFormElement } from "./fields/NumberField";
-import { DateFieldFormElement } from "./fields/DateField";
-import { CheckboxFieldFormElement } from "./fields/CheckboxField";
+import { SubTitleFieldFormElement } from "./fields/SubTitleField";
+import { TextFieldFormElement } from "./fields/TextField";
+import { TitleFieldFormElement } from "./fields/TitleField";
 
-export type ElementsType = "TextField" | "TitleField" | "SubTitleField" | "ParagraphField" | "SeparatorField"
-  | "SpacerField" | "SelectField" | "NumberField" | "DateField" | "CheckboxField"
+export type ElementsType =
+  | "TextField"
+  | "TitleField"
+  | "SubTitleField"
+  | "ParagraphField"
+  | "SeparatorField"
+  | "SpacerField"
+  | "NumberField"
+  | "DateField"
+  | "SelectField"
+  | "CheckboxField";
 
 export type SubmitFunction = (key: string, value: string) => void;
 
@@ -57,8 +65,8 @@ export const FormElements: FormElementsType = {
   ParagraphField: ParagraphFieldFormElement,
   SeparatorField: SeparatorFieldFormElement,
   SpacerField: SpacerFieldFormElement,
-  SelectField: SelectFieldFormElement,
   NumberField: NumberFieldFormElement,
   DateField: DateFieldFormElement,
-  CheckboxField: CheckboxFieldFormElement
+  SelectField: SelectFieldFormElement,
+  CheckboxField: CheckboxFieldFormElement,
 };
