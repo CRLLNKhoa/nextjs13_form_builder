@@ -1,13 +1,45 @@
-import React from 'react'
-import { Button } from './ui/button'
-import {BiSave} from "react-icons/bi"
+import React, { useTransition } from "react";
+import { Button } from "./ui/button";
+import { HiSaveAs } from "react-icons/hi";
+import useDesigner from "./hooks/useDesigner";
+import { UpdateFormContent } from "@/actions/form";
+import { toast } from "./ui/use-toast";
+import { FaSpinner } from "react-icons/fa";
 
-function SaveFormBtn() {
-    return (
-        <Button variant={'outline'}>
-         <BiSave className="mr-2" />
-         Lưu</Button>
-       )
+function SaveFormBtn({id},{ id: number }) {
+  const { elements } = useDesigner();
+  const [loading, startTransition] = useTransition();
+
+  const updateFormContent = async () => {
+    try {
+      const jsonElements = JSON.stringify(elements);
+      await UpdateFormContent(id, jsonElements);
+      toast({
+        title: "Lưu thành công!",
+        description: "Biểu mẫu của bạn đã được lưu!",
+      });
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Something went wrong",
+        variant: "destructive",
+      });
+    }
+  };
+  return (
+    <Button
+      variant={"outline"}
+      className="gap-2"
+      disabled={loading}
+      onClick={() => {
+        startTransition(updateFormContent);
+      }}
+    >
+      <HiSaveAs className="h-4 w-4" />
+      Lưu
+      {loading && <FaSpinner className="animate-spin" />}
+    </Button>
+  );
 }
 
-export default SaveFormBtn
+export default SaveFormBtn;

@@ -101,7 +101,7 @@ function StatsCards(props: StatsCardProps) {
   );
 }
 
-const StatsCard = ({
+export const StatsCard = ({
   title,
   value,
   icon,
@@ -183,9 +183,9 @@ const FormCard = ({ form }: { form: Form }) => {
       </CardContent>
       <CardFooter className="flex items-center">
         {form.published && (
-          <Button className="w-full mt-2" asChild variant={"secondary"} size={"sm"}>
-            <Link target="_blank" href={`/forms/${form.id}`}>
-              Đi đến biểu mẫu
+          <Button className="w-full mt-2" asChild size={"sm"}>
+            <Link href={`/forms/${form.id}`}>
+              Xem thông tin
             </Link>
           </Button>
         )}
