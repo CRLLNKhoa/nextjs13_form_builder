@@ -19,7 +19,9 @@ export type ElementsType =
   | "NumberField"
   | "DateField"
   | "SelectField"
-  | "CheckboxField";
+  | "CheckboxField"
+  | "TextAreaField"
+
 
 export type SubmitFunction = (key: string, value: string) => void;
 
@@ -69,4 +71,5 @@ export const FormElements: FormElementsType = {
   DateField: DateFieldFormElement,
   SelectField: SelectFieldFormElement,
   CheckboxField: CheckboxFieldFormElement,
+  TextAreaField: TextFieldFormElement
 };
