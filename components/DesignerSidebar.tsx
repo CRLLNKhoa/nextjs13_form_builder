@@ -23,18 +23,6 @@ function DesignerSidebar() {
         {!selectedElement && <FormElementsSidebar />}
         {selectedElement && <PropertiesFormSidebar />}
       </aside>
-
-      <Sheet>
-      <SheetTrigger asChild>
-        <Button variant="default" size={"icon"} className='fixed bottom-4 right-4'><IoMdAdd className="text-xl font-bold" /></Button>
-      </SheetTrigger>
-      <SheetContent >
-      <div className="overflow-y-auto">
-        {!selectedElement && <FormElementsSidebar />}
-          {selectedElement && <PropertiesFormSidebar />}
-      </div>
-      </SheetContent>
-    </Sheet>
    </>
   )
 }
