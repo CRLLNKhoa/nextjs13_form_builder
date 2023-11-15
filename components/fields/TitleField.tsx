@@ -22,7 +22,7 @@ const extraAttributes = {
 };
 
 const propertiesSchema = z.object({
-  title: z.string().min(2).max(100),
+  title: z.string().min(2).max(1000),
 });
 
 export const TitleFieldFormElement: FormElement = {
